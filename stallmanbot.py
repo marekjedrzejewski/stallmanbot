@@ -6,7 +6,7 @@ import re
 from matrix_client.client import MatrixClient
 
 if len(sys.argv) != 4:
-    print("USAGE: ./pastabot.py username password room")
+    print("USAGE: ./stallmanbot.py username password room")
     sys.exit(1)
 
 USERNAME = sys.argv[1]
@@ -26,7 +26,7 @@ keys_and_responses = {
 }
 
 
-class PastaBot():
+class StallmanBot():
     def __init__(self, username, password, roomname):
         # connect to room
         self.client = MatrixClient("http://matrix.org")
@@ -49,6 +49,6 @@ class PastaBot():
                         self.room.send_text(keys_and_responses[key])
 
 
-PastaBot(USERNAME, PASSWORD, ROOMNAME)
+StallmanBot(USERNAME, PASSWORD, ROOMNAME)
 while True:
     time.sleep(1)
