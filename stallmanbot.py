@@ -38,9 +38,6 @@ class PastaBot():
         self.room.add_listener(self.on_message)
         self.client.start_listener_thread()
 
-    def default_response(self, message):
-        return self.crypto.analyze_message_and_prepare_response(message)
-
     def on_message(self, room, event):
         if event['type'] == "m.room.message":
             if USERNAME in event['sender']:
